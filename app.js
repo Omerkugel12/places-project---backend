@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const dotenv = require("dotenv");
+require("dotenv").config();
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -8,6 +8,7 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 5000;
 const HttpError = require("./models/http-error.js");
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.mszwmyg.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
+console.log(uri);
 
 const placesRoutes = require("./routes/places-routes.js");
 const usersRoutes = require("./routes/users-routes.js");
